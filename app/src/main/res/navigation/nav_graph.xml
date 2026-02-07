@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.yourcompany.loanrisk.presentation.splash.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.yourcompany.loanrisk.presentation.home.HomeFragment"
+        android:label="Loan Risk Analyzer">
+        <action
+            android:id="@+id/action_homeFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.yourcompany.loanrisk.presentation.upload.UploadFragment"
+        android:label="Upload Agreement">
+        <action
+            android:id="@+id/action_uploadFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.yourcompany.loanrisk.presentation.summary.SummaryFragment"
+        android:label="Analysis Summary">
+        <action
+            android:id="@+id/action_summaryFragment_to_paywallFragment"
+            app:destination="@id/paywallFragment" />
+        <action
+            android:id="@+id/action_summaryFragment_to_riskFragment"
+            app:destination="@id/riskFragment" />
+        <argument
+            android:name="loanData"
+            app:argType="com.yourcompany.loanrisk.data.model.LoanAgreementData" />
+        <argument
+            android:name="riskResult"
+            app:argType="com.yourcompany.loanrisk.data.model.RiskAnalysisResult" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paywallFragment"
+        android:name="com.yourcompany.loanrisk.presentation.paywall.PaywallFragment"
+        android:label="Unlock PRO Features" />
+
+    <fragment
+        android:id="@+id/riskFragment"
+        android:name="com.yourcompany.loanrisk.presentation.risk.RiskFragment"
+        android:label="Risk Analysis">
+        <action
+            android:id="@+id/action_riskFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_riskFragment_to_exportFragment"
+            app:destination="@id/exportFragment" />
+        <argument
+            android:name="loanData"
+            app:argType="com.yourcompany.loanrisk.data.model.LoanAgreementData" />
+        <argument
+            android:name="riskResult"
+            app:argType="com.yourcompany.loanrisk.data.model.RiskAnalysisResult" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.yourcompany.loanrisk.presentation.calculator.CalculatorFragment"
+        android:label="Cost Calculator">
+        <argument
+            android:name="loanData"
+            app:argType="com.yourcompany.loanrisk.data.model.LoanAgreementData" />
+        <argument
+            android:name="riskResult"
+            app:argType="com.yourcompany.loanrisk.data.model.RiskAnalysisResult" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exportFragment"
+        android:name="com.yourcompany.loanrisk.presentation.export.ExportFragment"
+        android:label="Export Report">
+        <argument
+            android:name="loanData"
+            app:argType="com.yourcompany.loanrisk.data.model.LoanAgreementData" />
+        <argument
+            android:name="riskResult"
+            app:argType="com.yourcompany.loanrisk.data.model.RiskAnalysisResult" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.yourcompany.loanrisk.presentation.settings.SettingsFragment"
+        android:label="Settings" />
+
+</navigation>
